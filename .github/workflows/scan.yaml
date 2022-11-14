@@ -47,7 +47,7 @@ jobs:
 
       - name: Sorting the output results
         run: |
-          find output -type f -exec sort {} -o {} \;
+          #find output -type f -exec sort {} -o {} \;
         shell: bash
 
       - name: Create local changes
