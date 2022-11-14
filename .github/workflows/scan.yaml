@@ -42,7 +42,7 @@ jobs:
           nuclei -update-templates
           #subfinder -silent -dL input/domains.txt -config config/subfinder-config.yaml | anew output/passive_subdomains.txt | httpx -silent | anew output/active_urls.txt | nuclei -silent -t takeovers/ | anew output/nuclei_output.txt
           #anew domains.txt | katana -silent -d 5 -em json,jsp,php,html | anew scan_urls.txt | nuclei -silent -t cves/ | anew output.txt
-          anew domains.txt | httpx -silent | anew scan_urls.txt | nuclei -silent -t cves/ | anew output.txt
+          httpx -silent -l domains.txt| anew scan_urls.txt | nuclei -t cves/ | anew output.txt
         shell: bash
 
       - name: Sorting the output results
